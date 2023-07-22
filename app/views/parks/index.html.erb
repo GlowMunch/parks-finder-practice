@@ -4,9 +4,15 @@
   </div>
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
-      <h3>Total Parks: 10</h3>
-
-      <div class="park"></div>
+      <h3>Total Parks: <%= @parks_data['total'] %></h3>
+      <% @parks_data['data'].each do |park| %>
+        <div class="park">
+          <p>Full Name: <%= park['fullName'] %></p>
+          <p>Description <%= park['description'] %></p>
+          <p>Directions <%= park['directionsInfo'] %></p>
+          <p>Operating Hours <%= park['operatingHours'][0]['standardHours'] %></p>
+        </div>
+      <% end %>
     </ul>
   </div>
 </nav>
