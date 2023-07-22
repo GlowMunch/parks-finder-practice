@@ -4,12 +4,14 @@
   </div>
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
+      // The only way to test how the api response is serialized is with tests that visit this view
       <h3>Total Parks: <%= @parks_data['total'] %></h3>
       <% @parks_data['data'].each do |park| %>
         <div class="park">
           <p>Full Name: <%= park['fullName'] %></p>
           <p>Description <%= park['description'] %></p>
           <p>Directions <%= park['directionsInfo'] %></p>
+          // If you want to change the presentation of this data you will have to do it here, which sucks
           <p>Operating Hours <%= park['operatingHours'][0]['standardHours'] %></p>
         </div>
       <% end %>
